@@ -15,12 +15,12 @@ function VideoQuestion(){
                         <span>drop</span>                  
                     </div>
                     <label>
-                        <span className="file_attachment_icon">O</span>
+                        <span className="file_attachment_icon"></span>
                         <input type="file" name="attachment"/>
                     </label>                   
                 </div>
                 <div className="video_input">
-                    <iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+                    <iframe className="responsive-iframe" width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                 </div>
                 <TextareaAutosize placeholder="Write notes that are only visible to you. (Optional)" maxRows="5"/>
                 <p className="required_note">Video questions are required.</p>
