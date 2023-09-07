@@ -1,0 +1,24 @@
+
+
+.custom_dropdown{
+    .question_type_icon{
+        background: url(https://media.discordapp.net/attachments/912941765164666891/1149025751862104124/Screenshot_2023-09-07_005753.png) no-repeat -40px -59px;
+        background-size: 67px;
+        content: "";
+        cursor: pointer;
+        display: inline-block;
+        height: 16px;
+        margin-right: 24px;
+        width: 16px;
+    }
+    .carret_icon{
+        background: url(https://media.discordapp.net/attachments/912941765164666891/1149025751862104124/Screenshot_2023-09-07_005753.png) no-repeat -40px -84px;
+        background-size: 67px;
+        content: "";
+        cursor: pointer;
+        display: inline-block;
+        height: 16px;
+        margin: 0;
+        width: 16px;
+    }
+}
