@@ -30,11 +30,18 @@ const options = [
 function VideoQuestion(){
 
     const [isOpen, setOpen] = useState(false);
+    const [isActive, setActive] = useState(false);
 
     const onClickQuestionSelection = (event) =>{
         event.preventDefault();
         setOpen(!isOpen);
     }
+
+    const onClickVideoQuestion = (event) =>{
+        event.preventDefault();
+        setActive(!isActive);
+    }
+    
 
 
     useEffect(() => {
@@ -42,7 +49,7 @@ function VideoQuestion(){
       });
 
     return(
-        <div className="video_question">
+        <div className={`video_question ${isActive ? "active" : "inactive"}`} onClick={(onClickVideoQuestion)}>
             <span className="grip_dots"></span>
             <form action="/" method="get" >
                 <div className="question_title">
