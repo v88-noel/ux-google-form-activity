@@ -1,0 +1,26 @@
+.sortable_item{
+    background-color: #fff;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 200px;
+
+    .grip_dots{
+        background: url(https://media.discordapp.net/attachments/912941765164666891/1149025751862104124/Screenshot_2023-09-07_005753.png) no-repeat -36px -8px;
+        background-size: 70px;
+        cursor: pointer;
+        height: 20px;
+        width: 30px;
+        display: block;
+        margin: 0 auto;
+        background-color: aquamarine;
+        content: "";
+    }
+
+    .dynamic_textarea{
+        width: 100%;
+        resize: none;
+    }
+}

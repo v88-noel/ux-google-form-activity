@@ -1,7 +1,10 @@
 import TextareaAutosize from "react-textarea-autosize";
 
 import "./video_question.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import {useSortable} from '@dnd-kit/sortable';
+import {CSS} from '@dnd-kit/utilities';
+
 
 const options = [
     {
@@ -27,10 +30,12 @@ const options = [
 
 ]
 
-function VideoQuestion(){
+function VideoQuestion(props){
 
     const [isOpen, setOpen] = useState(false);
     const [isActive, setActive] = useState(false);
+
+    let dropdown_element = useRef()
 
     const onClickQuestionSelection = (event) =>{
         event.preventDefault();
@@ -41,21 +46,52 @@ function VideoQuestion(){
         event.preventDefault();
         setActive(!isActive);
     }
-    
-
 
     useEffect(() => {
         console.log(isOpen);
+
+        let handler = (event) =>{
+            if(!dropdown_element.current.contains(event.target)){
+                setOpen(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handler);
+
+        return() =>{
+            document.removeEventListener("mousedown", handler);
+        }
       });
 
+
+      const {
+        attributes,
+        listeners,
+        setNodeRef,
+        transform,
+        transition,
+      } = useSortable({id: props.id});
+
+
+      const style = {
+        transform: CSS.Transform.toString(transform),
+        transition,
+      };
+
+
+      
+
+
     return(
-        <div className={`video_question ${isActive ? "active" : "inactive"}`} onClick={(onClickVideoQuestion)}>
-            <span className="grip_dots"></span>
+        <div className={`video_question ${isActive ? "active" : ""}`} onClick={(onClickVideoQuestion)} 
+        ref={setNodeRef} style={style} >
+            {props.id}
+            <span className="grip_dots" {...attributes} {...listeners} ></span>
             <form action="/" method="get" >
                 <div className="question_title">
                     <div>                       
                         <input type="text" name="title" placeholder="Type your question here."/>
-                        <button className="dropdown_button" onClick={onClickQuestionSelection}>
+                        <button className="dropdown_button" onClick={onClickQuestionSelection} ref={dropdown_element}>
                             <span className="question_type_icon"></span>
                             <span className="carret_icon"></span>
                         </button> 
